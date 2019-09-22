@@ -4,8 +4,8 @@ jdk:
 before_install: # lets update the very old version of ANT in TravisCI
   - wget --no-check-certificate http://developer.microej.com/packages/SDK/19.05/MicroEJ-SDK-Installer-Linux64-19.05.zip
   - unzip MicroEJ-SDK-Installer-Linux64-19.05.zip
-  - find .
   - sh MicroEJ-SDK-Installer-Linux64-19.05.sh
+  - find .
   - unzip rcp/plugins/com.is2t.eclipse.plugin.easyant4e_1.7.4.20190513-1140.jar
   - export PATH=`pwd`:$PATH
   - echo $(ant -version)
