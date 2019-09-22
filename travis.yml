@@ -8,6 +8,7 @@ before_install: # lets update the very old version of ANT in TravisCI
   - export PATH=`pwd`:$PATH
   - echo $(ant -version)
 script:
+  - cd test-travis-build
   - ant default
 cache:
   directories:
