@@ -2,11 +2,11 @@ language: java
 jdk:
   - openjdk8
 before_install: # lets update the very old version of ANT in TravisCI
-  - wget --no-check-certificate http://developer.microej.com/packages/SDK/19.05/MicroEJ-SDK-Installer-Linux64-19.05.zip
-  - unzip MicroEJ-SDK-Installer-Linux64-19.05.zip
-  - sh MicroEJ-SDK-Installer-Linux64-19.05.sh
+  - wget --no-check-certificate http://repository.microej.com/p2/sdk/plugins/com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
+  - wget --no-check-certificate http://repository.microej.com/p2/sdk/plugins/com.is2t.eclipse.plugin.easyant4e.offlinerepo_1.6.0.20190516-1813.jar
+  - unzip com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
+  - unzip com.is2t.eclipse.plugin.easyant4e.offlinerepo_1.6.0.20190516-1813.jar
   - find .
-  - unzip rcp/plugins/com.is2t.eclipse.plugin.easyant4e_1.7.4.20190513-1140.jar
   - export PATH=`pwd`:$PATH
   - echo $(ant -version)
 script:
