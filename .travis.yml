@@ -4,8 +4,8 @@ jdk:
 before_install: # lets update the very old version of ANT in TravisCI
   - wget --no-check-certificate http://repository.microej.com/p2/sdk/plugins/com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
   - wget --no-check-certificate http://repository.microej.com/p2/sdk/plugins/com.is2t.eclipse.plugin.easyant4e.offlinerepo_1.6.0.20190516-1813.jar
-  - unzip com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
-  - unzip com.is2t.eclipse.plugin.easyant4e.offlinerepo_1.6.0.20190516-1813.jar
+  - unzip -o com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
+  - unzip -o com.is2t.eclipse.plugin.easyant4e.offlinerepo_1.6.0.20190516-1813.jar
   - find .
   - export PATH=`pwd`:$PATH
   - echo $(ant -version)
