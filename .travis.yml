@@ -5,9 +5,9 @@ before_install: # lets update the very old version of ANT in TravisCI
   - wget --no-check-certificate http://repository.microej.com/p2/sdk/plugins/com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
   - wget --no-check-certificate http://repository.microej.com/p2/sdk/plugins/com.is2t.eclipse.plugin.easyant4e.offlinerepo_1.6.0.20190516-1813.jar
   - wget --no-check-certificate https://archive.apache.org/dist/ant/binaries/apache-ant-1.9.9-bin.zip
-  - unzip -o com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
   - unzip -o com.is2t.eclipse.plugin.easyant4e.offlinerepo_1.6.0.20190516-1813.jar
   - unzip -o ./repositories/microej-build-repository.zip -d repositories
+  - unzip -o com.is2t.eclipse.plugin.easyant4e_1.7.4.20190516-1813.jar
   - unzip -o apache-ant-1.9.9-bin.zip
   - cp -r ./apache-ant-1.9.9/bin .
   - find .
