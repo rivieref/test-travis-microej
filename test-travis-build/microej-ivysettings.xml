@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	IVY
+	
+	Copyright 2016-2019 IS2T. All rights reserved.
+	IS2T PROPRIETARY. Use is subject to license terms.
+-->
+<ivy-settings>
+
+	<property name="microej.repository.name" value="repository.microej.com" override="false"/>
+	<property name="microej.repository.version" value="5" override="false"/>
+	<!-- URL of the MicroEJ Ivy repository -->
+	<property name="microej.repo.url" value="https://${microej.repository.name}/${microej.repository.version}/artifacts" override="false"/>
+	<!-- URL of the local repository -->
+	<property name="local.repo.url" value="${user.home}/.ivy2/repository" override="false"/>
+
+	<property name="microej.ivy.pattern" value="[organization]/[module]/[branch]/[revision]/ivy-[revision].xml" override="false"/>
+	<property name="microej.artifact.pattern" value="[organization]/[module]/[branch]/[revision]/[artifact]-[revision](-[classifier]).[ext]" override="false"/>
+	<property name="microej.default.resolver" value="MicroEJChainResolver" override="false"/>
+	<property name="microej.default.publication.resolver" value="microEJLocal" override="false"/>
+	
+	<settings defaultResolver="${microej.default.resolver}" defaultConflictManager="latest-compatible" defaultResolveMode="dynamic" defaultBranch=""/>
+	
+	<!-- Map generic EasyAnt resolver (*.resolver) to allow local artifacts publication -->
+    <property name="release.resolver" value="${microej.default.publication.resolver}" override="false"/>
+    <property name="shared.resolver" value="${microej.default.publication.resolver}" override="false"/>
+    <property name="local.resolver" value="${microej.default.publication.resolver}" override="false"/> 
+
+	<!-- Define a dedicated cache directory for this repository -->
+	<caches defaultCacheDir="${user.home}/.microej/caches/${microej.repository.name}-${microej.repository.version}" />
+
+	<resolvers>
+
+		<!-- MicroEJ central repository -->
+		<url name="microEJCentral" m2compatible="true">
+			<artifact pattern="${microej.repo.url}/${microej.artifact.pattern}" />
+			<ivy pattern="${microej.repo.url}/${microej.ivy.pattern}" />
+		</url>
+		
+		<!-- Local repository -->
+		<filesystem name="microEJLocal" m2compatible="true">
+          <artifact pattern="${local.repo.url}/${microej.artifact.pattern}" />
+			<ivy pattern="${local.repo.url}/${microej.ivy.pattern}" />
+        </filesystem>
+        
+        <!-- MicroEJ Chain Resolver -->
+         <chain name="${microej.default.resolver}">
+            <resolver ref="microEJCentral"/>
+            <resolver ref="microEJLocal"/>
+        </chain>
+
+	</resolvers>
+
+</ivy-settings>

@@ -1,8 +1,28 @@
 <project name="test" default="default">
 
+	<property name="microej-build-repository.repo.dir" location="${user.home}/repositories"/>
+	<property name="microej.ivy.settings.file" location="${basedir}/microej-ivysettings.xml"/>
+	
+	<presetdef name="mmm.build">
+		<java dir="${basedir}" classname="org.apache.easyant.core.EasyAntMain">
+			<sysproperty key="skip.corerevision.checker" value="true"/>
+			<sysproperty key="user.easyant.ivysettings.file" value="${microej-build-repository.repo.dir}/ivysettings.xml"/>
+			<sysproperty key="user.ivyDE.ivysettings.file" value="${microej.ivy.settings.file}"/>
+			<sysproperty key="project.ivy.settings.file" value="${microej.ivy.settings.file}"/>
+			<sysproperty key="skip.sonar" value="true"/>
+			<sysproperty key="basedir" value="${basedir}"/>
+			<sysproperty key="easyant.module.dir" value="${basedir}"/>
+			<sysproperty key="microej-build-repository.repo.dir" value="${microej-build-repository.repo.dir}"/>
+			<arg value="-f"/>
+			<arg value="${basedir}/module.ivy"/>
+			<arg value="-configfile"/>
+			<arg value="${microej-build-repository.repo.dir}/easyant_conf.xml"/>
+			<arg line="clean publish-local"/>
+		</java>
+	</presetdef>
 
 	<target name="default">
-		<echo message="PASSED"></echo>
+		<mmm.build></mmm.build>
 	</target>
 
 </project>
