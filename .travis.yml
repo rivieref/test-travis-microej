@@ -12,6 +12,7 @@ before_install: # lets update the very old version of ANT in TravisCI
   - cp -r ./apache-ant-1.9.9/bin .
   - find .
   - export PATH=$PWD/bin:$PATH
+  - export MICROEJ_BUILD_REPOSITORY_DIR=$PWD/repositories
   - echo $(ant -version)
 script:
   - cd test-travis-build

@@ -1,6 +1,7 @@
 <project name="test" default="default">
 
-	<property name="microej-build-repository.repo.dir" location="${user.home}/repositories"/>
+	<property environment="env"/>
+	<property name="microej-build-repository.repo.dir" location="${env.MICROEJ_BUILD_REPOSITORY_DIR}"/>
 	<property name="microej.ivy.settings.file" location="${basedir}/microej-ivysettings.xml"/>
 	
 	<presetdef name="mmm.build">
